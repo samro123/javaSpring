@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+     <bean id="manager" class="com.checonbinh.entity.Manager">
+     	<constructor-arg name="name" value="Sam"/>
+     	<constructor-arg name="age" value="18"/>
+     	<constructor-arg name="moneny" value="2000"/>
+     </bean> <!-- Class Object Manager  -->
+     
+     <bean id="managerFirst" class="com.checonbinh.entity.Manager">
+     	<constructor-arg name="name" value="Ro"/>
+     	<constructor-arg name="age" value="18"/>
+     	<constructor-arg name="moneny" value="2000"/>
+     </bean> <!-- Class Object Manager  -->
+     
+     <bean id="managerSecond" class="com.checonbinh.entity.Manager">
+     	<constructor-arg name="name" value="Tuan"/>
+     	<constructor-arg name="age" value="18"/>
+     	<constructor-arg name="moneny" value="2000"/>
+     </bean> <!-- Class Object Manager  -->
+     
+     
+        
+	<bean id="nhanvien" class="com.checonbinh.entity.NhanVien">
+	<constructor-arg ref="manager"/>
+	<property name="list">
+		<list>
+		<ref bean="manager"/>
+		<ref bean="managerFirst"/>
+		<ref bean="managerSecond"/>
+		<!-- List truyền vào là list<String>
+			 <value>Sam</value>
+			<value>Ro</value>
+			<value>Tuan</value>
+		 -->
+		</list>
+	</property>
+	
+	<!-- Truyen du lieu cho map ben class nhan vien  -->
+	<property name="map">
+		<map>
+			<entry key="key1" value="Abc"/>
+			<entry key="key2" value-ref="manager"/>
+		
+		</map>
+	</property>
+	
+	<!-- Truyen du lieu cho properties ben class nhan vien  -->
+	<property name="properties">
+		<props>
+			<prop key="jdbc">mysql</prop>
+			<prop key="user">root</prop>
+			<prop key="password">12356</prop>
+		</props>
+	</property>
+	</bean>
+	
+</beans>
