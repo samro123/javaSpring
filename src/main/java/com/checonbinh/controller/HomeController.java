@@ -1,10 +1,15 @@
 package com.checonbinh.controller;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Map.Entry;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,24 +24,34 @@ public class HomeController {
 	public String Home() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
 		NhanVien nhanVien = (NhanVien) context.getBean("nhanvien");
-//		nhanVien.getMessage();
-//		((ClassPathXmlApplicationContext)context).close();
-		System.out.println(nhanVien.getManager().getMoneny());
-		for(Manager value:nhanVien.getList()) {
-			System.out.println(value.getName());
-		}
-		//duyệt 1 giá trị
-//		Manager manger = (Manager)nhanVien.getMap().get("key2");
-//		System.out.println(manger.getName());
+		System.out.println(nhanVien.getManager().getMoneny() + " " + nhanVien.getManager().getName());
 		
-		//duyệt tất cả các giá trị entry.
-		for(Entry<String, Object> entry: nhanVien.getMap().entrySet()) {
-			System.out.println(entry.getKey() +  " - " + entry.getValue());
+		//Resource resource = context.getResource("https://samapi123.wiremockapi.cloud/storeDetails/1");
+//		CustomLoader customLoader = new CustomLoader();
+//		customLoader.setResourceLoader(context);
+		CustomLoader customLoader = (CustomLoader) context.getBean("customLoader");
+		Resource resource = customLoader.getResource("https://samapi123.wiremockapi.cloud/storeDetails/1");
+		try {
+			InputStream inputStream = resource.getInputStream();
+			InputStreamReader reader = new InputStreamReader(inputStream);
+			BufferedReader bufferedReader = new BufferedReader(reader);
+			String line = "";
+			StringBuilder datas = new StringBuilder();
+			while((line = bufferedReader.readLine()) != null) {
+				datas.append(line + "\n");
+			}
+			
+			bufferedReader.close();
+			reader.close();
+			inputStream.close();
+			
+			System.out.println("Giá trị : " + datas.toString());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		//property
-		String jdbc = nhanVien.getProperties().getProperty("jdbc");
-		System.out.println(jdbc);
 		return "abc";
 	}
 

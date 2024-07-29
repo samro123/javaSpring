@@ -8,9 +8,6 @@ public class NhanVien {
 	String name;
 	int age;
 	Manager manager;
-	List<Manager> list;
-	Map<String, Object> map;
-	Properties properties;
 	
 	public NhanVien() {
 		
@@ -31,32 +28,6 @@ public class NhanVien {
 	
 	
 
-	public List<Manager> getList() {
-		return list;
-	}
-
-	public void setList(List<Manager> list) {
-		this.list = list;
-	}
-	
-
-	public Map<String, Object> getMap() {
-		return map;
-	}
-
-	public void setMap(Map<String, Object> map) {
-		this.map = map;
-	}
-	
-	
-
-	public Properties getProperties() {
-		return properties;
-	}
-
-	public void setProperties(Properties properties) {
-		this.properties = properties;
-	}
 
 	public Manager getManager() {
 		return manager;
