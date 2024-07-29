@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.checonbinh.entity.NhanVien"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,13 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<h3>${username}</h3>
-	
+<body>	
 	<% 
-		String nameUser = (String)request.getAttribute("username");
+		//String nameUser = (String)request.getAttribute("username");
+		List<NhanVien> list = (List<NhanVien>)request.getAttribute("nhanvien");
+		for(NhanVien nv: list){
+		
 	%>
-	
-	<%= nameUser %>
+	<h3><%= nv.getName() %> </h3>
+	<% } %>
 </body>
 </html>

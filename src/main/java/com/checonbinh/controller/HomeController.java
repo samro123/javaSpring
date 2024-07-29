@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 
 import org.springframework.context.ApplicationContext;
@@ -38,7 +40,19 @@ public class HomeController {
 		String username = "Sam";
 		String password = "123456789";
 		
-		modelMap.addAttribute("username", username);
+		NhanVien nv = new NhanVien();
+		nv.setName("Sam ");
+		nv.setAge(10);
+		
+		NhanVien nv1 = new NhanVien();
+		nv1.setName("Ro");
+		nv1.setAge(12);
+		
+		List<NhanVien> listNhanVien = new ArrayList<NhanVien>();
+		listNhanVien.add(nv);
+		listNhanVien.add(nv1);
+		
+		modelMap.addAttribute("nhanvien", listNhanVien);
 		modelMap.addAttribute("password", "password");
 		return "home";
 	}
