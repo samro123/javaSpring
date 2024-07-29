@@ -11,16 +11,7 @@
     	http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
         
-       <bean id="manager" class="com.checonbinh.entity.Manager">
-     	<constructor-arg name="name" value="Sam"/>
-     	<constructor-arg name="age" value="18"/>
-     	<constructor-arg name="moneny" value="2000"/>
-     </bean>  <!-- Class Object Manager  --> 
-     
-     <bean id = "customLoader" class="com.checonbinh.controller.CustomLoader" autowire="byType"></bean>
-        
-	<bean id="nhanvien" class="com.checonbinh.entity.NhanVien" autowire="byName">
-	</bean>
+       
 
 	
 </beans>
