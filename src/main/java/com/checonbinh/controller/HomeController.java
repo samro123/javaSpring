@@ -13,7 +13,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,36 +28,17 @@ import com.checonbinh.entity.Manager;
 import com.checonbinh.entity.NhanVien;
 
 @Controller
+@RequestMapping("/home")
 public class HomeController {
-//	@RequestMapping("/home")
-//	public ModelAndView Home() {
-//		ModelAndView viewHome = new ModelAndView();
-//		viewHome.setViewName("home");
-//		
-//	String username = "Sam";
-//	String password = "123456789";
-//	
-//	viewHome.addObject("username", username);
-//	viewHome.addObject("password", "password");
-//		return viewHome;
-//	}
-	@RequestMapping(path="/home", method = RequestMethod.GET)
-	public String Home(ModelMap modelMap) {
+	@GetMapping()
+	public String Default() {
 		return "home";
 	}
 	
-	@RequestMapping("/details/{id}")
-	public String Details(@PathVariable int id, @MatrixVariable String name, ModelMap modelMap) // nhan vao tham so id tren trinh duyet co kieu int tren id
-	{	
-		modelMap.addAttribute("id",id);
+	@GetMapping("/{name}")
+	public String TruyenData(@PathVariable String name, ModelMap modelMap) {
 		modelMap.addAttribute("name", name);
-		return "details";
-	}
-	
-	@RequestMapping(path="/details",method = RequestMethod.POST)
-	public String PostDetials(@RequestParam("name") String name, ModelMap modelMap) {
-		modelMap.addAttribute("name", name);
-		return "details";
+		return "home";
 	}
 
 }

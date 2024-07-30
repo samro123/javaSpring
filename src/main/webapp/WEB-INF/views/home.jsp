@@ -9,10 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<a href="details/20/sam">Details</a>
-	<form action="details" method="post">
-		<input type="text" name= "name"> <br/>
-		<input type="submit" value="Post du lieu">
-	</form>
+	<a href="details/20/sam">Details</a>${name }
+	
 </body>
 </html>
