@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- Details ${id} ${name}
+ Details ${nv.getName()} ${name}
 </body>
 </html>
