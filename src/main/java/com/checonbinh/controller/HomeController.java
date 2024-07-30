@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -43,8 +44,8 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("/details/{id}/{name}")
-	public String Details(@PathVariable("id") int id, @PathVariable("name") String name, ModelMap modelMap) // nhan vao tham so id tren trinh duyet co kieu int tren id
+	@RequestMapping("/details/{id}")
+	public String Details(@PathVariable int id, @MatrixVariable String name, ModelMap modelMap) // nhan vao tham so id tren trinh duyet co kieu int tren id
 	{	
 		modelMap.addAttribute("id",id);
 		modelMap.addAttribute("name", name);
