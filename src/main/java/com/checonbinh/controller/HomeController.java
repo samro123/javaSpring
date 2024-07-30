@@ -15,6 +15,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,26 +37,17 @@ public class HomeController {
 //	viewHome.addObject("password", "password");
 //		return viewHome;
 //	}
-	@RequestMapping("/home")
+	@RequestMapping(path="/home", method = RequestMethod.GET)
 	public String Home(ModelMap modelMap) {
-		String username = "Sam";
-		String password = "123456789";
-		
-		NhanVien nv = new NhanVien();
-		nv.setName("Sam ");
-		nv.setAge(10);
-		
-		NhanVien nv1 = new NhanVien();
-		nv1.setName("Ro");
-		nv1.setAge(12);
-		
-		List<NhanVien> listNhanVien = new ArrayList<NhanVien>();
-		listNhanVien.add(nv);
-		listNhanVien.add(nv1);
-		
-		modelMap.addAttribute("nhanvien", listNhanVien);
-		modelMap.addAttribute("password", "password");
 		return "home";
+	}
+	
+	@RequestMapping("/details")
+	public String Details(@RequestParam("id") int id, @RequestParam("name") String name, ModelMap modelMap) // nhan vao tham so id tren trinh duyet co kieu int tren id
+	{	
+		modelMap.addAttribute("id",id);
+		modelMap.addAttribute("name", name);
+		return "details";
 	}
 
 }
