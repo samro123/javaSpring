@@ -18,7 +18,8 @@ public class DetailsController {
 	}
 	
 	@PostMapping
-	public String DisplayUser(@ModelAttribute NhanVien nv, ModelMap modelMap) {
+	public String DisplayUser(@ModelAttribute NhanVien nv, ModelMap modelMap) // co bao nhieu bien co ban Nhan vien phai day du tham so
+	{
 		modelMap.addAttribute("nv", nv);
 		return "details";
 	}

@@ -14,6 +14,7 @@
 	<!-- Stage 3: Add support for component scanning -->
 	<context:component-scan base-package="com.checonbinh.controller" />
 	<mvc:annotation-driven enable-matrix-variables="true"/>
+	<mvc:resources location="/resources/" mapping="/resources/**"/> <!-- Link den css,js, image -->
 	
 	<!-- Stage 4: Define Spring MVC view resolver -->
 	<bean
