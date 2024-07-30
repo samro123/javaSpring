@@ -51,5 +51,11 @@ public class HomeController {
 		modelMap.addAttribute("name", name);
 		return "details";
 	}
+	
+	@RequestMapping(path="/details",method = RequestMethod.POST)
+	public String PostDetials(@RequestParam("name") String name, ModelMap modelMap) {
+		modelMap.addAttribute("name", name);
+		return "details";
+	}
 
 }
