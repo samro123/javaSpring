@@ -9,6 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<a href="details?id=20&name=sam">Details</a>
+	<a href="details/20/sam">Details</a>
 </body>
 </html>
