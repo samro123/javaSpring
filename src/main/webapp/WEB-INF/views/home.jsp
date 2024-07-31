@@ -7,18 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/Styles/styles.css">
 <title>Insert title here</title>
 
 </head>
 <body>	
-	<c:out value="${name }" />
-	<a id="thea" href="details">Details</a>${name }
-	<form action="details" method="post">
-	 <input type="text" name="name">
-	 <input type="text" name="age">
-	 <input type="submit">
-	</form>
-	
+    <c:catch var="exception">
+       <% int i = 5 / 0; %>
+    </c:catch>
+	 <c:if test="${exception != null }">
+	 	Error: ${exception.message}
+	 </c:if>
 </body>
 </html>
