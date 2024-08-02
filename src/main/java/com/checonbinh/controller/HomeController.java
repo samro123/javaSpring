@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.checonbinh.entity.DatabaseShop;
 import com.checonbinh.entity.Manager;
 import com.checonbinh.entity.NhanVien;
 
@@ -32,12 +33,28 @@ import com.checonbinh.entity.NhanVien;
 public class HomeController {
 	@GetMapping()
 	public String Default() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("IoC.xml");
+		DatabaseShop  databaseShop = (DatabaseShop) context.getBean("databaseShop");
+		databaseShop.getListEmployee();
 		return "home";
 	}
 	
 	@GetMapping("/{name}")
 	public String TruyenData(@PathVariable String name, ModelMap modelMap) {
 		modelMap.addAttribute("name", name);
+		NhanVien nv = new NhanVien();
+		nv.setName("Sam");
+		nv.setAge(12);
+		
+		NhanVien nv1 = new NhanVien();
+		nv1.setName("Sam");
+		nv1.setAge(12);
+		
+		List<NhanVien> list = new ArrayList<NhanVien>();
+		list.add(nv1);
+		list.add(nv);
+		modelMap.addAttribute("list", list);
+		
 		return "home";
 	}
 

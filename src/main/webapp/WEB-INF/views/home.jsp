@@ -11,11 +11,8 @@
 
 </head>
 <body>	
-    <c:catch var="exception">
-       <% int i = 5 / 0; %>
-    </c:catch>
-	 <c:if test="${exception != null }">
-	 	Error: ${exception.message}
-	 </c:if>
+    <c:forEach items="${list}" var="nv">
+    	<c:out value="${nv.getName() }"></c:out>
+    </c:forEach>
 </body>
 </html>
