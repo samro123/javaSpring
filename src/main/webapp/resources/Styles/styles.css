@@ -3,12 +3,12 @@
 html,body {
 	width: 100%;
 	height: 100%;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background-color: #d5eafc;
+	font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+	background-color: #fff;
 	display: grid;
 	place-items: center;
-	overflow: hidden;
-}
+	overflow: auto;
+	}
 
 * {
   margin: 0;
@@ -99,8 +99,7 @@ html,body {
 }
 
 /* Form login*/
-input,
-    button {
+input{
       width: 100%;
       border: none;
       padding: 14px;
@@ -114,15 +113,6 @@ input,
       color: #656880;
     }
 
-    button {
-      background-image: linear-gradient(to right,#89CAFF, #0096FF);
-      display: block;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 5px 20px #89caff94;
-      transition: box-shadow .3s ease-in-out;
-    }
 
     button:hover {
       box-shadow: none;
@@ -136,3 +126,91 @@ input,
     }
     
   /* Form login*/
+    /* css Home*/
+#header{
+	height: 620px;
+	background: linear-gradient(
+	rgba(0,0,0,0.42),
+	rgba(0,0,0,0.42)
+	),
+	url("../Image/image_background.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}    
+
+
+#navbarSupportedContent{
+	margin-left: 25%;
+}
+.navbar-nav a{
+	color: white !important;
+}
+
+.active a {
+	color: blue
+}
+.dropdown-menu {
+	background-color: #0F93E7
+}
+
+
+@media (min-width: 576px) { 
+
+
+	
+}
+
+
+@media (min-width: 768px) {  }
+
+
+@media (max-width: 992px) { 
+#navbarSupportedContent{
+	margin-left: 12% !important;
+}
+	
+}
+
+.icon{
+	width: 48px;
+	height: 48px;
+}
+
+#info{
+	text-align: center;
+	margin-top: 30px
+}
+
+#info span{
+	margin-top: 0px;
+}
+
+#title-product{
+	margin-top: 100px;
+	text-align: center;
+	font-size: 30px
+}
+.card-custom {
+            border: none;
+            border-radius: 10px;
+        }
+.card-custom img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+.card-body  {
+	padding: 15px;}
+.card-text {
+            color: #6c757d;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+.btn-cart {
+            background-color: transparent;
+            border: none;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+  
