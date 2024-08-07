@@ -36,31 +36,23 @@ public class HomeController {
 	@Transactional
 	public String Default() {
 		Session session = sessionFactory.getCurrentSession();
+		String sql1 = "from employee where idEmployee = 1";
+		Employee list1 = (Employee)session.createQuery(sql1).uniqueResult();
+//		list1.setUserName("No No Ro"); 
+//		session.update(list1);
+		session.delete(list1);
+		
+		
 		String sql = "from employee";
 		List<Employee> list = session.createQuery(sql).getResultList();
 		for(Employee ee: list) {
 			System.out.println(ee.getUserName());
 		}
+		
+		
 		return "home";
 	}
 	
-//	@GetMapping("/{name}")
-//	public String TruyenData(@PathVariable String name, ModelMap modelMap) {
-//		modelMap.addAttribute("name", name);
-//		NhanVien nv = new NhanVien();
-//		nv.setName("Sam");
-//		nv.setAge(12);
-//		
-//		NhanVien nv1 = new NhanVien();
-//		nv1.setName("Sam");
-//		nv1.setAge(12);
-//		
-//		List<NhanVien> list = new ArrayList<NhanVien>();
-//		list.add(nv1);
-//		list.add(nv);
-//		modelMap.addAttribute("list", list);
-//		
-//		return "home";
-//	}
+    
 
 }
