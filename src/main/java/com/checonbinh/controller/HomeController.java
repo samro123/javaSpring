@@ -53,21 +53,9 @@ public class HomeController {
 //		}
 		
 		Product product = new Product();
-		product.setNameProduct("Items");
+		product.setNameProduct("Items5");
 		product.setPrice("50000 VND");
 		
-		Product product1 = new Product();
-		product1.setNameProduct("Item2");
-		product1.setPrice("50000 VND");
-		
-		Product product2 = new Product();
-		product2.setNameProduct("Item2");
-		product2.setPrice("50000 VND");
-		
-		Set<Product> products = new HashSet<Product>();
-		products.add(product);
-		products.add(product1);
-		products.add(product2);
 		
 		
 		
@@ -75,9 +63,23 @@ public class HomeController {
 		employee.setUserName("Ro");
 		employee.setAge(18);
 		
-		employee.setProducts(products);
+		Employee employee1 = new Employee();
+		employee1.setUserName("Pu");
+		employee1.setAge(18);
 		
-		session.save(employee);
+		Employee employee2 = new Employee();
+		employee2.setUserName("Sam");
+		employee2.setAge(18);
+		
+		Set<Employee> employees = new HashSet<Employee>();
+		employees.add(employee);
+		employees.add(employee1);
+		employees.add(employee2);
+		
+		product.setEmployee(employees);
+		
+		
+		session.save(product);
 		
 		
 		return "home";

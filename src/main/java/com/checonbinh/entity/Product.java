@@ -1,11 +1,15 @@
 package com.checonbinh.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity(name = "product")
@@ -16,10 +20,13 @@ public class Product {
 	String nameProduct;
 	String price;
     
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="idEmployee")
-	Employee employee;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "employee_product",
+			joinColumns = {@JoinColumn(name = "idProduct", referencedColumnName = "idProduct")},
+			inverseJoinColumns = {@JoinColumn(name = "idEmployee", referencedColumnName = "idEmployee")}
+			)
+	Set<Employee> employee;
 	
 	public int getIdProduct() {
 		return idProduct;
@@ -39,11 +46,10 @@ public class Product {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	
-	public Employee getEmployee() {
+	public Set<Employee> getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Employee employee) {
+	public void setEmployee(Set<Employee> employee) {
 		this.employee = employee;
 	}
 	

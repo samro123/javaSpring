@@ -9,6 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity(name = "employee")
@@ -23,8 +26,12 @@ public class Employee {
 	int age;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idEmployee")
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "employee_product",
+			joinColumns = {@JoinColumn(name = "idEmployee", referencedColumnName = "idEmployee")},
+			inverseJoinColumns = {@JoinColumn(name = "idProduct", referencedColumnName = "idProduct")}
+			)
 	Set<Product> products;
 	
 	
