@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.checonbinh.entity.Employee;
+import com.checonbinh.entity.Product;
 
 @Controller
 @RequestMapping("/home")
@@ -36,18 +39,45 @@ public class HomeController {
 	@Transactional
 	public String Default() {
 		Session session = sessionFactory.getCurrentSession();
-		String sql1 = "from employee where idEmployee = 1";
-		Employee list1 = (Employee)session.createQuery(sql1).uniqueResult();
-//		list1.setUserName("No No Ro"); 
-//		session.update(list1);
-		session.delete(list1);
+//		String sql1 = "from employee where idEmployee = 1";
+//		Employee list1 = (Employee)session.createQuery(sql1).uniqueResult();
+////		list1.setUserName("No No Ro"); 
+////		session.update(list1);
+//		session.delete(list1);
+//		
+//		
+//		String sql = "from employee";
+//		List<Employee> list = session.createQuery(sql).getResultList();
+//		for(Employee ee: list) {
+//			System.out.println(ee.getUserName());
+//		}
+		
+		Product product = new Product();
+		product.setNameProduct("Items");
+		product.setPrice("50000 VND");
+		
+		Product product1 = new Product();
+		product1.setNameProduct("Item2");
+		product1.setPrice("50000 VND");
+		
+		Product product2 = new Product();
+		product2.setNameProduct("Item2");
+		product2.setPrice("50000 VND");
+		
+		Set<Product> products = new HashSet<Product>();
+		products.add(product);
+		products.add(product1);
+		products.add(product2);
 		
 		
-		String sql = "from employee";
-		List<Employee> list = session.createQuery(sql).getResultList();
-		for(Employee ee: list) {
-			System.out.println(ee.getUserName());
-		}
+		
+		Employee employee = new Employee();
+		employee.setUserName("Ro");
+		employee.setAge(18);
+		
+		employee.setProducts(products);
+		
+		session.save(employee);
 		
 		
 		return "home";
