@@ -46,7 +46,7 @@
 					</ul>
 
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link">Sign In</a></li>
+						<li class="nav-item"><a href="./login/" class="nav-link">Sign In</a></li>
 						<li class="nav-item"><a class="nav-link">Sign Up</a></li>
 						<li><a class="nav-link"><img height="20px" width="20px"
 								src='<c:url value = "/resources/Image/grocery-store.png"/>'></a></li>

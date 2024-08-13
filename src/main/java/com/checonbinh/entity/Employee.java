@@ -1,68 +1,111 @@
 package com.checonbinh.entity;
 
-import java.util.Set;
-
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
-@Entity(name = "employee")
+@Entity(name="employee")
 public class Employee {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idEmployee")
 	int idEmployee;
-	@Column(name = "UserName")
+	String name;
+	String address;
+	boolean sex;
+	String idCard;
+	String phone;
+	String email;
 	String userName;
-	@Column(name = "Age")
-	int age;
+	String password;
 	
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "employee_product",
-			joinColumns = {@JoinColumn(name = "idEmployee", referencedColumnName = "idEmployee")},
-			inverseJoinColumns = {@JoinColumn(name = "idProduct", referencedColumnName = "idProduct")}
-			)
-	Set<Product> products;
-	
-	
-	
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idPositions")
+	Position position;
+
 	public int getIdEmployee() {
 		return idEmployee;
 	}
+
 	public void setIdEmployee(int idEmployee) {
 		this.idEmployee = idEmployee;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public boolean isSex() {
+		return sex;
+	}
+
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getAge() {
-		return age;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setAge(int age) {
-		this.age = age;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
-	public Set<Product> getProducts() {
-		return products;
+
+	public Position getPosition() {
+		return position;
 	}
-	public void setProducts(Set<Product> products) {
-		this.products = products;
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
-	
 	
 	
 

@@ -24,8 +24,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.checonbinh.entity.Employee;
-import com.checonbinh.entity.Product;
 
 @Controller
 @RequestMapping("/home")
@@ -38,48 +36,9 @@ public class HomeController {
 	@GetMapping
 	@Transactional
 	public String Default() {
-		Session session = sessionFactory.getCurrentSession();
-//		String sql1 = "from employee where idEmployee = 1";
-//		Employee list1 = (Employee)session.createQuery(sql1).uniqueResult();
-////		list1.setUserName("No No Ro"); 
-////		session.update(list1);
-//		session.delete(list1);
-//		
-//		
-//		String sql = "from employee";
-//		List<Employee> list = session.createQuery(sql).getResultList();
-//		for(Employee ee: list) {
-//			System.out.println(ee.getUserName());
-//		}
-		
-		Product product = new Product();
-		product.setNameProduct("Items5");
-		product.setPrice("50000 VND");
+
 		
 		
-		
-		
-		Employee employee = new Employee();
-		employee.setUserName("Ro");
-		employee.setAge(18);
-		
-		Employee employee1 = new Employee();
-		employee1.setUserName("Pu");
-		employee1.setAge(18);
-		
-		Employee employee2 = new Employee();
-		employee2.setUserName("Sam");
-		employee2.setAge(18);
-		
-		Set<Employee> employees = new HashSet<Employee>();
-		employees.add(employee);
-		employees.add(employee1);
-		employees.add(employee2);
-		
-		product.setEmployee(employees);
-		
-		
-		session.save(product);
 		
 		
 		return "home";
