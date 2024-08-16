@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +32,12 @@ public class LoginController {
 	
 	@PostMapping
 	@Transactional
-	public String processLogin(@RequestParam String name, @RequestParam String password) {
+	public String processLogin(@RequestParam String name, @RequestParam String password, ModelMap map) {
 		boolean checkLogin = employeeService.checkLogin(name, password);
 		if(checkLogin) {
-			System.out.println("Successly");
+			map.addAttribute("checkLogin", "Successly");
 		}else {
-			System.out.println("fauil");
+			map.addAttribute("checkLogin", "Fauil");
 		}
 		return "login";
 	}

@@ -33,7 +33,7 @@
 				  <input name="password" type="password" placeholder="Password">
 			      <button type="submit">Login</button>
 				  </form>
-			      <span>No spams included</span>
+			      <span>${checkLogin}</span>
 		    </div>
 		    
 		</div>
