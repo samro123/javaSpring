@@ -28,9 +28,9 @@
 		    <div class="form-title">
 		    	<span>Sign In</span>
 		    </div>
-				  <form action="">
-				  <input type="email" placeholder="Email address">
-				  <input type="password" placeholder="Password">
+				  <form action="" method="post">
+				  <input name="name" placeholder="Email address">
+				  <input name="password" type="password" placeholder="Password">
 			      <button type="submit">Login</button>
 				  </form>
 			      <span>No spams included</span>
