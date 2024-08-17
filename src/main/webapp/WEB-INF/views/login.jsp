@@ -28,11 +28,10 @@
 		    <div class="form-title">
 		    	<span>Sign In</span>
 		    </div>
-				  <form action="" method="post">
-				  <input name="name" placeholder="Email address">
-				  <input name="password" type="password" placeholder="Password">
-			      <button type="submit">Login</button>
-				  </form>
+				  
+				  <input id="name" name="name" placeholder="Email address">
+				  <input id ="password" name="password" type="password" placeholder="Password">
+			      <button id="buttonLogin" type="submit">Login</button>
 			      <span>${checkLogin}</span>
 		    </div>
 		    

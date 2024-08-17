@@ -29,8 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/home")
 public class HomeController {
 	
-	@Autowired
-	SessionFactory sessionFactory;
+//	@Autowired
+//	SessionFactory sessionFactory;
 	
 	
 	@GetMapping
