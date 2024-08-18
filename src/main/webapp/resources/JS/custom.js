@@ -1,7 +1,5 @@
 $(document).ready(function(){
-	$("#cot1").click(function(){
-		alert("Hello!")
-	});
+	
 	
 	$("#buttonLogin").click(function(){
 		var name = $("#name").val();
@@ -23,5 +21,14 @@ $(document).ready(function(){
 				}
 			}
 		})
+	});
+	
+	$("#pageLogin").click(function(){
+		$("#login-form").show();
+		$("#sign-up-form").hide();
+	});
+	$("#pageRegister").click(function(){
+		$("#login-form").hide();
+		$("#sign-up-form").show();
 	});
 })
