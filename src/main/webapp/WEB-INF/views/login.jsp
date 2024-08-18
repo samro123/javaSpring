@@ -32,7 +32,7 @@
 				  <input id="name" name="name" placeholder="Email address">
 				  <input id ="password" name="password" type="password" placeholder="Password">
 			      <button id="buttonLogin" type="submit">Login</button>
-			      <span>${checkLogin}</span>
+			      <span>${name}</span>
 		    </div>
 		    
 		</div>

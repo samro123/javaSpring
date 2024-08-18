@@ -15,9 +15,11 @@ $(document).ready(function(){
 			},
 			success:function(value){
 				if(value=="true"){
-					alert("Login success"+ value)
+					linkCurrent = window.location.href;
+					link = linkCurrent.replace("login/", "home/");
+					window.location = link;
 				}else{
-					alert("Login fauil"+ value)
+					$("#result").text("Login Fauil")
 				}
 			}
 		})
