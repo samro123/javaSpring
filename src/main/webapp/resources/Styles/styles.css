@@ -63,8 +63,8 @@ html,body {
 	display: flex;
 	flex-direction: row;
 }
-#sign-up-form{
-	display: none;
+div#sign-up-form {
+    display: none;
 }
 
 .btn-box{

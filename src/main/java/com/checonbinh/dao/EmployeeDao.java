@@ -13,27 +13,38 @@ import com.checonbinh.imp.EmployeeImp;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class EmployeeDao implements EmployeeImp{
+public class EmployeeDao implements EmployeeImp {
 	@Autowired
 	SessionFactory sessionFactory;
-	
+
 	@Transactional
 	public boolean checkLogin(String name, String password) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			String sql = "from employee where userName='"+name+"' AND password='"+password+"'";
-			Employee employee = (Employee)session.createQuery(sql).getSingleResult();
-			
-			if(employee != null) {
+			String sql = "from employee where userName='" + name + "' AND password='" + password + "'";
+			Employee employee = (Employee) session.createQuery(sql).getSingleResult();
+
+			if (employee != null) {
 				return true;
-			}else {
+			} else {
 				return false;
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;
 		}
-		
+
+	}
+
+	@Transactional
+	public boolean addEmployee(Employee employee) {
+		Session session = sessionFactory.getCurrentSession();
+		int idEmploye = (Integer) session.save(employee);
+		if (idEmploye > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

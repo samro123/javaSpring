@@ -39,12 +39,14 @@
 		    <div class="form-title">
 		    	<span>Sign Up</span>
 		    </div>
-				  
-				  <input id="name1" name="name" placeholder="Email address">
-				  <input id ="password1" name="password" type="password" placeholder="Password">
-				  <input id ="password2" name="password" type="password" placeholder="Password">
-			      <button id="buttonLogin2" type="submit">Login</button>
-			      <span>${name}</span>
+				  <form action="" method="POST">
+				  <input id="name" name="name" placeholder="Email address">
+				  <input id ="password" name="password" type="password" placeholder="Password">
+				  <input id ="confirmPassword" name="confirmPassword" type="password" placeholder="Password">
+			      <button id="buttonLogin2" type="submit">Sign Up</button>
+			      </form>
+			      
+			      <span>${checkLogin}</span>
 		    </div>
 		    
 		   
