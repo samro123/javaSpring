@@ -99,11 +99,14 @@
       </div>
       <div class="musthave__grid">
       <c:forEach var="product" items="${listProduct}">
+      <a href="./details/${product.getIdProduct()}">
       <div class="musthave__card">
           <img src='<c:url value = "/resources/Image/assets/${product.getImage()}"/>' alt="must have" />
           <h4>${product.getNameProduct()}</h4>
           <p><del>$45.00</del> $75.00</p>
-        </div></c:forEach>
+       </div>
+      </a>
+        </c:forEach>
        
       </div>
     </section>

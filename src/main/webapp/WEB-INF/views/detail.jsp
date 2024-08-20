@@ -48,34 +48,34 @@
 				<div class="img-display">
 					<div class="img-showcase">
 						<img
-							src='<c:url value = "/resources/Image/shoes_images/shoe_1.jpg"/>'
+							src='<c:url value = "/resources/Image/assets/${product.getImage()}"/>'
 							alt="shoe image"> 
-							<img src='<c:url value = "/resources/Image/shoes_images/shoe_2.jpg"/>'
+							<img src='<c:url value = "/resources/Image/assets/shoe_2.jpg"/>'
 							alt="shoe image"> 
-							<img src='<c:url value = "/resources/Image/shoes_images/shoe_3.jpg"/>'
+							<img src='<c:url value = "/resources/Image/assets/shoe_3.jpg"/>'
 							alt="shoe image"> 
-							<img src='<c:url value = "/resources/Image/shoes_images/shoe_4.jpg"/>'
+							<img src='<c:url value = "/resources/Image/assets/shoe_4.jpg"/>'
 							alt="shoe image">
 					</div>
 				</div>
 				<div class="img-select">
 					<div class="img-item">
-						<a href="#" data-id="1"> <img src='<c:url value = "/resources/Image/shoes_images/shoe_1.jpg"/>'
+						<a href="#" data-id="1"> <img src='<c:url value = "/resources/Image/assets/${product.getImage()}"/>'
 							alt="shoe image">
 						</a>
 					</div>
 					<div class="img-item">
-						<a href="#" data-id="2"> <img src='<c:url value = "/resources/Image/shoes_images/shoe_2.jpg"/>'
+						<a href="#" data-id="2"> <img src='<c:url value = "/resources/Image/assets/shoe_2.jpg"/>'
 							alt="shoe image">
 						</a>
 					</div>
 					<div class="img-item">
-						<a href="#" data-id="3"> <img src='<c:url value = "/resources/Image/shoes_images/shoe_3.jpg"/>'
+						<a href="#" data-id="3"> <img src='<c:url value = "/resources/Image/assets/shoe_3.jpg"/>'
 							alt="shoe image">
 						</a>
 					</div>
 					<div class="img-item">
-						<a href="#" data-id="4"> <img src='<c:url value = "/resources/Image/shoes_images/shoe_4.jpg"/>'
+						<a href="#" data-id="4"> <img src='<c:url value = "/resources/Image/assets/shoe_4.jpg"/>'
 							alt="shoe image">
 						</a>
 					</div>
@@ -83,7 +83,7 @@
 			</div>
 			<!-- card right -->
 			<div class="product-content">
-				<h2 class="product-title">nike shoes</h2>
+				<h2 class="product-title">${product.getNameProduct() }</h2>
 				<a href="#" class="product-link">visit nike store</a>
 				<div class="product-rating">
 					<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
@@ -108,13 +108,20 @@
 						ipsa!</p>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+					 <c:forEach var="productDetails" items="${ product.getDetailProducts()}" varStatus="status"> 
+					<div class="product-details" id="product-${status.index}" style="display: ${status.first ? 'block' : 'none'};">
 					<ul>
-						<li>Color: <span>Black</span></li>
-						<li>Available: <span>in stock</span></li>
+						<li>Color: <span>${productDetails.getColor().getNameColor()}</span></li>
+						<li>Available: <span>${productDetails.getQuantity()}</span></li>
 						<li>Category: <span>Shoes</span></li>
-						<li>Shipping Area: <span>All over the world</span></li>
-						<li>Shipping Fee: <span>Free</span></li>
+						<li>Size: <span>${productDetails.getSize().getNameSize()}</span></li>
+						<li>Date: <span>${productDetails.getEntryDate()}</span></li>
 					</ul>
+					</div>
+					</c:forEach>
+				
+				<button onclick="prevProduct()">Previous</button>
+				<button onclick="nextProduct()">Next</button>
 				</div>
 
 				<div class="purchase-info">

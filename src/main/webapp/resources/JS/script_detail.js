@@ -17,3 +17,22 @@ function slideImage(){
 }
 
 window.addEventListener('resize', slideImage);
+
+let currentIndex = 0;
+    const products = document.querySelectorAll('.product-details');
+
+    function showProduct(index) {
+        products.forEach((product, i) => {
+            product.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    function prevProduct() {
+        currentIndex = (currentIndex === 0) ? products.length - 1 : currentIndex - 1;
+        showProduct(currentIndex);
+    }
+
+    function nextProduct() {
+        currentIndex = (currentIndex === products.length - 1) ? 0 : currentIndex + 1;
+        showProduct(currentIndex);
+    }

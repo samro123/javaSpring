@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,7 +29,7 @@ public class Product{
 	@JoinColumn(name = "idCategory")
 	Category category;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinColumn(name="idProduct")
 	Set<DetailProduct> detailProducts;
 	

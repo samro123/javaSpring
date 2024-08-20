@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.checonbinh.entity.DetailProduct;
 import com.checonbinh.entity.Product;
 import com.checonbinh.imp.ProductImp;
 
@@ -27,6 +28,14 @@ public class ProductDao implements ProductImp{
 		
 		List<Product> listProduct = (List<Product>) session.createQuery(sql).setFirstResult(startProduct).setMaxResults(20).getResultList();
 		return listProduct;
+	}
+
+	@Transactional
+	public Product ProductDetails(int idProduct) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from product where idProduct = "+idProduct;
+		Product product = (Product) session.createQuery(sql).getSingleResult();
+		return product;
 	}
 
 }

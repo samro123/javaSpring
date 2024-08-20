@@ -20,4 +20,9 @@ public class ProductService implements ProductImp{
 		
 	}
 
+	public Product ProductDetails(int idProduct) {
+		return productDao.ProductDetails(idProduct);
+		
+	}
+
 }
