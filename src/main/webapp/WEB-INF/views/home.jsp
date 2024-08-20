@@ -96,12 +96,14 @@
 			<div class="container mt-5">
 				<div class="row">
 					<!-- Card 1 -->
-					<div class="col-md-3">
+					
+					<c:forEach var="product" items="${listProduct}">
+						<div class="col-md-3">
 						<div class="card">
 							<img src="https://via.placeholder.com/150" class="card-img-top"
 								alt="Product 1">
 							<div class="card-body">
-								<h5 class="card-title">Product 1</h5>
+								<h5 class="card-title">${product.getNameProduct()}</h5>
 								<p class="card-text">$10.00</p>
 								<div class="d-flex justify-content-between">
 									<a href="#" class="btn btn-primary">Buy</a> <a href="#"
@@ -110,51 +112,9 @@
 							</div>
 						</div>
 					</div>
-					<!-- Card 2 -->
-					<div class="col-md-3">
-						<div class="card">
-							<img src="https://via.placeholder.com/150" class="card-img-top"
-								alt="Product 2">
-							<div class="card-body">
-								<h5 class="card-title">Product 2</h5>
-								<p class="card-text">$20.00</p>
-								<div class="d-flex justify-content-between">
-									<a href="#" class="btn btn-primary">Buy</a> <a href="#"
-										class="btn btn-secondary">Cart</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Card 3 -->
-					<div class="col-md-3">
-						<div class="card">
-							<img src="https://via.placeholder.com/150" class="card-img-top"
-								alt="Product 3">
-							<div class="card-body">
-								<h5 class="card-title">Product 3</h5>
-								<p class="card-text">$30.00</p>
-								<div class="d-flex justify-content-between">
-									<a href="#" class="btn btn-primary">Buy</a> <a href="#"
-										class="btn btn-secondary">Cart</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Card 4 -->
-					<div class="col-md-3">
-						<div class="card">
-							<img src="https://via.placeholder.com/150" class="card-img-top"
-								alt="Product 4">
-							<div class="card-body">
-								<h5 class="card-title">Product 4</h5>
-								<p class="card-text">$40.00</p>
-								<div class="d-flex justify-content-between">
-									<a href="#" class="btn btn-primary">Buy</a> <a href="#"
-										class="btn btn-secondary">Cart</a>
-								</div>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
+					
+					
 				</div>
 			</div>
 		</div>

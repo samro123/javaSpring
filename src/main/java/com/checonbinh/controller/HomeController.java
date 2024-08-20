@@ -1,10 +1,17 @@
 package com.checonbinh.controller;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.checonbinh.entity.Product;
+import com.checonbinh.service.ProductService;
 
 
 @Controller
@@ -14,6 +21,8 @@ public class HomeController {
 //	@Autowired
 //	SessionFactory sessionFactory;
 	
+	@Autowired
+	ProductService productService;
 	
 	@GetMapping
 	@Transactional
@@ -25,7 +34,10 @@ public class HomeController {
 		 System.out.println(firstName);
 		 modelMap.addAttribute("firstName", firstName);
 		}
-		return "home";
+		
+		List<Product> listProduct = productService.listProducts(0);
+		modelMap.addAttribute("listProduct", listProduct);
+		return "index";
 	}
 	
     
