@@ -83,7 +83,7 @@
 			</div>
 			<!-- card right -->
 			<div class="product-content">
-				<h2 class="product-title">${product.getNameProduct() }</h2>
+				<h2 id="name-product" class="product-title" data-name="${product.getIdProduct()}">${product.getNameProduct()}</h2>
 				<a href="#" class="product-link">visit nike store</a>
 				<div class="product-rating">
 					<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
@@ -95,8 +95,8 @@
 					<p class="last-price">
 						Old Price: <span>$257.00</span>
 					</p>
-					<p class="new-price">
-						New Price: <span>$249.00 (5%)</span>
+					<p class="new-price" data-price="${product.getPrice()}">
+						New Price: <span>${product.getPrice()}</span>
 					</p>
 				</div>
 
@@ -111,10 +111,10 @@
 					 <c:forEach var="productDetails" items="${ product.getDetailProducts()}" varStatus="status"> 
 					<div class="product-details" id="product-${status.index}" style="display: ${status.first ? 'block' : 'none'};">
 					<ul>
-						<li>Color: <span>${productDetails.getColor().getNameColor()}</span></li>
-						<li>Available: <span>${productDetails.getQuantity()}</span></li>
+						<li >Color: <span class="color" data-color="${productDetails.getColor().getIdColor()}" >${productDetails.getColor().getNameColor()}</span></li>
+						<li>Available: <span class="quantity">${productDetails.getQuantity()}</span></li>
 						<li>Category: <span>Shoes</span></li>
-						<li>Size: <span>${productDetails.getSize().getNameSize()}</span></li>
+						<li>Size: <span class="size" data-size="${productDetails.getSize().getIdSize()}">${productDetails.getSize().getNameSize()}</span></li>
 						<li>Date: <span>${productDetails.getEntryDate()}</span></li>
 					</ul>
 					</div>
@@ -126,7 +126,7 @@
 
 				<div class="purchase-info">
 					<input type="number" min="0" value="1">
-					<button type="button" class="btn">
+					<button type="button" class="btn btn-cart">
 						Add to Cart <i class="fas fa-shopping-cart"></i>
 					</button>
 					<button type="button" class="btn">Compare</button>
@@ -213,7 +213,8 @@
 
 	<%-- Footer --%>
 
-
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<script src='<c:url value = "/resources/JS/script_detail.js"/>'></script>
+	<script src='<c:url value = "/resources/JS/custom.js"/>'></script>
 </body>
 </html>
