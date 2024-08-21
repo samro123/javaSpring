@@ -33,8 +33,19 @@
 		</ul>
 		<div class="nav__icons">
 			<span><i class="ri-shield-user-line"></i></span> <span><i
-				class="ri-search-line"></i></span> <span><i
-				class="ri-shopping-bag-2-line"></i></span>
+				class="ri-search-line"></i></span> 
+				<span><i id="id-cart" class="ri-shopping-bag-2-line">
+				<c:if test="${countCart > 0}">
+				<div class="cricle-count-cart"><span>${countCart}</span></div>
+				</c:if>
+				
+			    <c:if test="${countCart < 0 || countCart == null}">
+			    <div ><span>${countCart}</span></div>
+			    </c:if>
+				
+				
+				
+				</i></span>
 		</div>
 	</nav>
 

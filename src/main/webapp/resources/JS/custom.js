@@ -51,7 +51,17 @@ $(document).ready(function(){
 				quantity:quantity
 			},
 			success:function(value){
+				
 			}
+		}).done(function(){
+			$.ajax({
+			url:"/mini-shop-sam/api/countCart",
+			type:"GET",
+			success:function(value){
+				$("#id-cart").find("div").addClass("cricle-count-cart");
+				$("#id-cart").find("div").html("<span>"+ value+"</span");
+			}
+		})
 		})
 		
 		

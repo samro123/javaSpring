@@ -63,6 +63,17 @@ public class ApiController {
 		}
 	}
 	
+	@GetMapping("countCart")
+	@ResponseBody
+	public String giveCountCart(HttpSession httpSession) {
+		if(null != httpSession.getAttribute("cart")) {
+			List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
+			return carts.size() + ""; 
+		}
+		return "";
+	}
+	
+	
 	
 	private Cart cart(int idProduct,int idColor,int idSize,String nameProduct, String price, String nameSize, String nameColor, int quantity) {
 		Cart cart = new Cart();
@@ -87,4 +98,7 @@ public class ApiController {
 		}
 		return -1;
 	}
+	
+	
+	
 }
