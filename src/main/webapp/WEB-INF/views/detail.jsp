@@ -49,9 +49,14 @@
 		</div>
 	</nav>
 
-	<%-- Header --%>
+	<%-- HeaderEnd --%>
 	<%-- Content --%>
-
+	
+	
+	<%-- ContentEnd --%>
+	
+	
+   	<%-- Footer --%>
 	<div class="card-wrapper">
 		<div class="card">
 			<!-- card left -->
@@ -71,7 +76,7 @@
 				</div>
 				<div class="img-select">
 					<div class="img-item">
-						<a href="#" data-id="1"> <img src='<c:url value = "/resources/Image/assets/${product.getImage()}"/>'
+						<a href="#" data-id="1"> <img class="product-img" data-img="${product.getImage()}" src='<c:url value = "/resources/Image/assets/${product.getImage()}"/>'
 							alt="shoe image">
 						</a>
 					</div>

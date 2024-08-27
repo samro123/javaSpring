@@ -38,17 +38,17 @@ public class ApiController {
 	
 	@GetMapping("addCart")
 	@ResponseBody
-	public void addCart(@RequestParam int idProduct,@RequestParam int idColor,@RequestParam int idSize,@RequestParam String nameProduct,@RequestParam String price,@RequestParam String nameSize,@RequestParam String nameColor,@RequestParam int quantity, HttpSession httpSession ) {
+	public void addCart(@RequestParam int idProduct,@RequestParam int idColor,@RequestParam int idSize,@RequestParam String nameProduct,@RequestParam String price,@RequestParam String nameSize,@RequestParam String nameColor,@RequestParam String img,@RequestParam int quantity, HttpSession httpSession ) {
 		
 		if(null == httpSession.getAttribute("cart")) {
 			List<Cart> carts = new ArrayList<Cart>();
-			carts.add(cart(idProduct, idColor, idSize, nameProduct, price, nameSize, nameColor, quantity));
+			carts.add(cart(idProduct, idColor, idSize, nameProduct, price, nameSize, nameColor, img, quantity));
 			httpSession.setAttribute("cart", carts);
 		}else {
 			List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
 			int indexCart = checkProductAvalibleCart(carts, httpSession, idProduct,idColor, idSize);
 			if(indexCart == -1) {
-			 carts.add(cart(idProduct, idColor, idSize, nameProduct, price, nameSize, nameColor, quantity));
+			 carts.add(cart(idProduct, idColor, idSize, nameProduct, price, nameSize, nameColor,img, quantity));
 
 			}else {
 				int newCount = carts.get(indexCart).getQuantity() + 1;
@@ -59,7 +59,7 @@ public class ApiController {
 		List<Cart> listCart = (List<Cart>) httpSession.getAttribute("cart");
 		System.out.println("----");
 		for(Cart cart: listCart) {
-		System.out.println(cart.getNameSize() + "-" + cart.getNameColor() + "-" + cart.getQuantity());
+		System.out.println(cart.getImg() + "-" + cart.getNameColor() + "-" + cart.getQuantity());
 		}
 	}
 	
@@ -75,7 +75,7 @@ public class ApiController {
 	
 	
 	
-	private Cart cart(int idProduct,int idColor,int idSize,String nameProduct, String price, String nameSize, String nameColor, int quantity) {
+	private Cart cart(int idProduct,int idColor,int idSize,String nameProduct, String price, String nameSize, String nameColor,String img, int quantity) {
 		Cart cart = new Cart();
 		cart.setIdProduct(idProduct);
 		cart.setIdColor(idColor);
@@ -84,6 +84,7 @@ public class ApiController {
 		cart.setNameProduct(nameProduct);
 		cart.setNameSize(nameSize);
 		cart.setPrice(price);
+		cart.setImg(img);
 		cart.setQuantity(1);
 		return cart;
 		

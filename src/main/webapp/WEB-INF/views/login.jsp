@@ -26,7 +26,7 @@
 		    
 		    <div id="login-form"> 
 		    <div class="form-title">
-		    	<span id="">Sign In</span>
+		    	<span style="color: black">Sign In</span>
 		    </div>
 				  
 				  <input id="name" name="name" placeholder="Email address">
@@ -36,13 +36,13 @@
 		    </div>
 		    
 		    <div id="sign-up-form"> 
-		    <div class="form-title">
-		    	<span>Sign Up</span>
+		    <div class="form-title" >
+		    	<span style="color: black">Sign Up</span>
 		    </div>
 				  <form action="" method="POST">
 				  <input id="name" name="name" placeholder="Email address">
 				  <input id ="password" name="password" type="password" placeholder="Password">
-				  <input id ="confirmPassword" name="confirmPassword" type="password" placeholder="Password">
+				  <input id ="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password">
 			      <button id="buttonLogin2" type="submit">Sign Up</button>
 			      </form>
 			      

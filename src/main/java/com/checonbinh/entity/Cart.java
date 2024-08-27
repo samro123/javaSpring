@@ -8,6 +8,7 @@ public class Cart {
 	String price;
 	String nameSize;
 	String nameColor;
+	String img;
 	int quantity;
 	
 	
@@ -52,6 +53,14 @@ public class Cart {
 	}
 	public void setNameSize(String nameSize) {
 		this.nameSize = nameSize;
+	}
+	
+	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public int getQuantity() {
 		return quantity;

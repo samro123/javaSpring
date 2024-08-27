@@ -1,6 +1,14 @@
 const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
+
+//all initial element
+const decrementBtn = document.querySelectorAll("#decrement");
+const incrementBtn = document.querySelectorAll("#increment");
 let imgId = 1;
+
+
+
+
 
 imgBtns.forEach((imgItem) => {
     imgItem.addEventListener('click', (event) => {
