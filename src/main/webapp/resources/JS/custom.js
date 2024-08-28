@@ -68,15 +68,43 @@ $(document).ready(function(){
 		
 	});
 		totalMoney();
-	  function totalMoney(){
+	  function totalMoney(isEventChange){
+		var moneyTotal = 0;
 		var money = 0;
 		$(".price-total").each(function(){
-			var price = $(this).text();
-			alert(price);
-			money += parseFloat(price);
+			var price = $(this).attr("data-price");
+			var count = $(this).closest('.wrapper').find('.quantity').text();
+			money = parseInt(price) * parseInt(count);
+			if(!isEventChange){
+				$(this).html(money);
+			}
+		    
+			moneyTotal += money;
 		});
-		$("#total").html(money);		
+		$("#total").html(moneyTotal);	
 	}
+	
+	
+	  $(".product-close-btn").click(function(){
+		var self = $(this);
+		var idProduct = $(this).closest('.product-card').find(".idproduct").data("idproduct");
+    	var idSize = $(this).closest('.product-card').find(".idsize").data("idsize");
+    	var idColor = $(this).closest('.product-card').find(".idcolor").data("idcolor");
+    	$.ajax({
+			url:"/mini-shop-sam/api/removeCart",
+			type:"GET",
+			data:{
+				idProduct:idProduct,
+				idColor:idColor,
+				idSize:idSize,
+			},
+			success:function(value){
+				self.closest('.product-card').remove();
+				totalMoney();
+
+			}
+		})
+	});
 	
 	  // Handle increment button click
         $(".increment").click(function(){
@@ -109,8 +137,27 @@ $(document).ready(function(){
             var total = parseInt(price) * parseInt(countProduct);
             //var format = (total/1000).toFixed(3);
             $(this).closest('.wrapper').find('.price-total').html(total);
-            totalMoney();
-            //alert(total)
+            totalMoney(true);
+            //var idProduct = ;
+            var idProduct = $(this).closest('.product-card').find(".idproduct").data("idproduct");
+    		var idSize = $(this).closest('.product-card').find(".idsize").data("idsize");
+    		var idColor = $(this).closest('.product-card').find(".idcolor").data("idcolor");
+			
+			$.ajax({
+			url:"/mini-shop-sam/api/loadCart",
+			type:"GET",
+			data:{
+				idProduct:idProduct,
+				idColor:idColor,
+				idSize:idSize,
+				quantity:countProduct
+			},
+			success:function(value){
+				
+			}
+		})
+			            
+            
         });
 	
 	$("#pageLogin").click(function(){

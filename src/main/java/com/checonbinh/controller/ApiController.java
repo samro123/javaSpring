@@ -36,6 +36,31 @@ public class ApiController {
 		return ""+checkLogin;
 	}
 	
+	
+	@GetMapping("loadCart")
+	@ResponseBody
+	public String loadCart(@RequestParam int idProduct, @RequestParam int idColor, @RequestParam int idSize, @RequestParam int quantity, HttpSession httpSession ) {
+		if(null != httpSession.getAttribute("cart")) {
+			List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
+			int indexCart = checkProductAvalibleCart(carts, httpSession, idProduct,idColor, idSize);
+			carts.get(indexCart).setQuantity(quantity);
+
+		}
+		return "";
+	}
+	
+	@GetMapping("removeCart")
+	@ResponseBody
+	public String loadCart(@RequestParam int idProduct, @RequestParam int idColor, @RequestParam int idSize, HttpSession httpSession ) {
+		if(null != httpSession.getAttribute("cart")) {
+			List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
+			int indexCart = checkProductAvalibleCart(carts, httpSession, idProduct,idColor, idSize);
+			carts.remove(indexCart);
+
+		}
+		return "";
+	}
+	
 	@GetMapping("addCart")
 	@ResponseBody
 	public void addCart(@RequestParam int idProduct,@RequestParam int idColor,@RequestParam int idSize,@RequestParam String nameProduct,@RequestParam String price,@RequestParam String nameSize,@RequestParam String nameColor,@RequestParam String img,@RequestParam int quantity, HttpSession httpSession ) {

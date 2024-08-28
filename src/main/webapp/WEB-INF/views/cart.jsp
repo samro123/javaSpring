@@ -134,9 +134,9 @@
                             </div>
 
                             <div class="detail">
-                                <h4 class="product-name">${carts.getNameProduct()}</h4>
-                                <h4 class="product-name">Size: ${carts.getNameSize()}</h4>
-                                <h4 class="product-name">Color: ${carts.getNameColor()}</h4>
+                                <h4 class="product-name idproduct" data-idproduct="${carts.getIdProduct()}">${carts.getNameProduct()}</h4>
+                                <h4 class="product-name idsize" data-idsize="${carts.getIdSize()}">Size: ${carts.getNameSize()}</h4>
+                                <h4 class="product-name idcolor" data-idcolor="${carts.getIdColor()}">Color: ${carts.getNameColor()}</h4>
 
                                 <div class="wrapper">
                                     <div class="product-qty">
