@@ -128,7 +128,7 @@
 					<div class="product-details" id="product-${status.index}" style="display: ${status.first ? 'block' : 'none'};">
 					<ul>
 						<li >Color: <span class="color" data-color="${productDetails.getColor().getIdColor()}" >${productDetails.getColor().getNameColor()}</span></li>
-						<li>Available: <span class="quantity">${productDetails.getQuantity()}</span></li>
+						<li>Available: <span class="quantity" data-iddetail="${productDetails.getIdDetailProduct()}">${productDetails.getQuantity()}</span></li>
 						<li>Category: <span>Shoes</span></li>
 						<li>Size: <span class="size" data-size="${productDetails.getSize().getIdSize()}">${productDetails.getSize().getNameSize()}</span></li>
 						<li>Date: <span>${productDetails.getEntryDate()}</span></li>

@@ -1,6 +1,7 @@
 package com.checonbinh.entity;
 
 public class Cart {
+	int idDetail;
 	int idProduct;
 	int idColor;
 	int idSize;
@@ -12,6 +13,14 @@ public class Cart {
 	int quantity;
 	
 	
+	
+	
+	public int getIdDetail() {
+		return idDetail;
+	}
+	public void setIdDetail(int idDetail) {
+		this.idDetail = idDetail;
+	}
 	public String getNameColor() {
 		return nameColor;
 	}

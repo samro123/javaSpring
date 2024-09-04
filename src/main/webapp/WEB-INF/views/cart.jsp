@@ -63,22 +63,22 @@
             <section class="checkout">
                 <h2 class="section-heading">Payment Detail</h2>
                 <div class="payment-form">
-                    <form action="#">
+                    <form action="" method="post">
                         <div class="card-number">
                             <label for="card-number" class="lable-default">Buyer Name</label>
-                            <input type="text" name="card-number" id="card-number" class="input-default">
+                            <input type="text" name="nameCustomer" id="card-number" class="input-default">
                         </div>
                         <div class="card-number">
                             <label for="card-number" class="lable-default">Phone Number</label>
-                            <input type="text" name="card-number" id="card-number" class="input-default">
+                            <input type="text" name="phone" id="card-number" class="input-default">
                         </div>
                         <div class="card-number">
                             <label for="card-number" class="lable-default">Address</label>
-                            <input type="text" name="card-number" id="card-number" class="input-default">
+                            <input type="text" name="address" id="card-number" class="input-default">
                         </div>
                         <div class="card-number">
                             <label for="card-number" class="lable-default">Comment</label>
-                            <textarea class="input-default" rows="5" id="comment"></textarea>
+                            <textarea class="input-default" name="notes" rows="5" id="comment"></textarea>
                         </div>
                     <!-- <div class="input-flex">
                         <div class="expire-date">
@@ -96,6 +96,9 @@
 
 
                     </div> -->
+                    <button class="btn btn-primary" type="submit">
+                    <b>Pay</b> $ <span id="payAmount">2.15</span>
+                </button>
                         
                     </form>
 
@@ -135,7 +138,7 @@
 
                             <div class="detail">
                                 <h4 class="product-name idproduct" data-idproduct="${carts.getIdProduct()}">${carts.getNameProduct()}</h4>
-                                <h4 class="product-name idsize" data-idsize="${carts.getIdSize()}">Size: ${carts.getNameSize()}</h4>
+                                <h4 class="product-name idsize" data-idsize="${carts.getIdSize()}">Size: ${carts.getIdDetail()}</h4>
                                 <h4 class="product-name idcolor" data-idcolor="${carts.getIdColor()}">Color: ${carts.getNameColor()}</h4>
 
                                 <div class="wrapper">

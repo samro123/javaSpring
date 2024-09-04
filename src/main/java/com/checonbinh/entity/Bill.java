@@ -20,6 +20,7 @@ public class Bill {
     String address;
     boolean status;
     String entryDate;
+    String notes;
     
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="idBill")
@@ -80,6 +81,16 @@ public class Bill {
 	public void setDetailBills(Set<DetailBill> detailBills) {
 		this.detailBills = detailBills;
 	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	
+	
     
     
 

@@ -31,6 +31,7 @@ $(document).ready(function(){
  	   
 	  var size = productDetails.find(".size").text();
        var idSize = productDetails.find(".size").data("size");
+       var idDetail = productDetails.find(".quantity").data("iddetail");
        
        var nameProduct = $("#name-product").text();
        var idProduct = $("#name-product").data("name");
@@ -49,7 +50,8 @@ $(document).ready(function(){
 		 		nameSize:size,
 				nameColor:color,
 				img:image,
-				quantity:quantity
+				quantity:quantity,
+				idDetail:idDetail,
 			},
 			success:function(value){
 				
